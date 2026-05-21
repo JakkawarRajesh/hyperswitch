@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(docker compose *)",
+      "Bash(export COMPOSE_PARALLEL_LIMIT=2)",
+      "Bash(awk -F: '$1 < 1110 && $1 > 1060 {print}')",
+      "Bash(docker image *)",
+      "Bash(git checkout *)",
+      "Bash(curl -sS -o /dev/null -w \"router /health: HTTP %{http_code}\\\\n\" http://localhost:8080/health)",
+      "Bash(curl -sS -o /dev/null -w \"control-center :9000: HTTP %{http_code}\\\\n\" http://localhost:9000)",
+      "Bash(curl -sS -o /dev/null -w \"web sdk :9050: HTTP %{http_code}\\\\n\" http://localhost:9050)",
+      "Bash(curl -sS -o /dev/null http://localhost:8090/health)",
+      "Bash(curl -sS http://localhost:8090/health)",
+      "Bash(curl -sS http://localhost:8090/routing-trace/pay_001)",
+      "Bash(python -m json.tool)",
+      "Bash(curl -sS -w \"\\\\nHTTP %{http_code}\\\\n\" http://localhost:8090/routing-trace/unknown)",
+      "Bash(curl -sS -X POST http://localhost:8090/route -H 'Content-Type: application/json' -d '{\"payment_id\":\"pay_allfail_2\",\"amount\":5000,\"currency\":\"INR\"}')",
+      "Bash(curl -sS -o /dev/null -f http://localhost:8090/health)",
+      "Bash(curl -sS -w \"\\\\nHTTP %{http_code}\\\\n\" -X POST http://localhost:8090/route -H 'Content-Type: application/json' -d '{\"payment_id\":\"pay_restored\",\"amount\":5000,\"currency\":\"INR\"}')",
+      "Bash(curl -sS -X POST http://localhost:8090/route -H 'Content-Type: application/json' -d '{\"payment_id\":\"pay_restored\",\"amount\":5000,\"currency\":\"INR\"}')"
+    ]
+  }
+}
