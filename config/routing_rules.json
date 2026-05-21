@@ -1,0 +1,22 @@
+{
+  "connectors": [
+    {
+      "name": "razorpay",
+      "fee_percent": 2.0,
+      "min_success_rate": 0.90,
+      "current_success_rate": 0.91
+    },
+    {
+      "name": "stripe",
+      "fee_percent": 2.9,
+      "min_success_rate": 0.95,
+      "current_success_rate": 0.97
+    },
+    {
+      "name": "adyen",
+      "fee_percent": 1.5,
+      "min_success_rate": 0.92,
+      "current_success_rate": 0.85
+    }
+  ]
+}

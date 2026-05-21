@@ -289,6 +289,20 @@ services:
     networks:
       - router_net
 
+  ### Cost-aware routing service
+  cost-router:
+    build: ./cost-router
+    container_name: cost-router
+    ports:
+      - "8090:8090"
+    volumes:
+      - ./config/routing_rules.json:/config/routing_rules.json:ro
+    environment:
+      - ROUTING_RULES_PATH=/config/routing_rules.json
+    networks:
+      - router_net
+    restart: unless-stopped
+
   ### Clustered Redis setup
   redis-cluster:
     image: docker.io/redis:7
